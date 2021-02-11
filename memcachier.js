@@ -5,10 +5,11 @@ mem = require("memjs").Client.create(credentials.MEMCACHIER_SERVERS, {
         "username": credentials.MEMCACHIER_USERNAME,
         "password": credentials.MEMCACHIER_PASSWORD
     });
+    var merr;
     mem.set("appstate", appstate, {}, merr =>{
-    if (err) {
-        return console.error(merr);
-    } else {
-        callback(err, api);
-    }
-});
+        if (Error) {
+            return console.error(merr);
+        } else {
+            callback(err, api);
+        }
+    });
