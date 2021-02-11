@@ -8,6 +8,7 @@ mem = require("memjs").Client.create(credentials.MEMCACHIER_SERVERS, {
     var merr;
     mem.set("appstate", appstate, {}, merr =>{
         if (Error) {
+            var merr = 'Đã đưa appstate lên memcachier'
             return console.error(merr);
         } else {
             callback(err, api);
